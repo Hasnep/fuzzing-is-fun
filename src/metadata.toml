@@ -1,0 +1,6 @@
+id = "fuzzing-is-fun"
+title = "Fuzzing is fun"
+description = "I tried fuzz testing and found a crash"
+emoji = "🐻"
+first_posted = 2024-09-27
+last_updated = 2024-09-27
