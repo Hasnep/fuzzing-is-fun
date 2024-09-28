@@ -21,7 +21,7 @@ A more involved mutation could take the example input `beans123` and change the 
 I used the existing Unicode test suite as input examples for the fuzzer, these test cases include tricky edge cases like ` ਃ가` (a Gurmukhi combining diacritic followed by a Hangul syllable).
 I wrote a short Roc app that just runs `Grapheme.split` on its input and set up a loop that pipes the fuzzer output to the Roc app and dumps any errors to a text file.
 After an hour of running I managed to get 30 test cases that crashed the Roc app.
-Some of the test cases were short like `ใ␁ᅠ‍ऀ` (A Thai character,an invisible start of heading character, a Hangul filler character, an invisible zero width joiner and a Devanagari diacritic).
+Some of the test cases were short like `ใ␁ᅠ‍ऀ` (A Thai character, an invisible start of heading character, a Hangul filler character, an invisible zero width joiner and a Devanagari diacritic).
 Other test cases were megabytes long, clearly radamsa has a mutation that tries to send way more input than the program is expecting. 😅
 Looking over all the new test cases, they were all situations where unexpected things were being joined with a zero width joiner character.
 I opened [an issue](https://github.com/roc-lang/unicode/issues/19) on the `roc-unicode` repo explaining my findings.
